@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교사용 AI 실무 도구 허브 | Edu AI Toolkit</title>
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text: #0F172A;
+      --text-muted: #64748B;
+      --primary: #1D4ED8;
+      --primary-hover: #1E40AF;
+      --primary-light: #EFF6FF;
+      --border: #E2E8F0;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 10px 28px rgba(29, 78, 216, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .badge-hub {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    p.lead {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+    .badge-tool { background: #FEF3C7; color: #B45309; }
+    .badge-deck { background: #E0E7FF; color: #4338CA; }
+    .card h2 {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #1E293B;
+      line-height: 1.35;
+    }
+    .card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .feature-list {
+      list-style: none;
+      margin-bottom: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .feature-list li {
+      font-size: 13.5px;
+      color: #334155;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-list li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 13px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #FFFFFF;
+      transition: background 0.15s ease;
+    }
+    .btn-action:hover {
+      background: var(--primary-hover);
+    }
+    .btn-secondary {
+      background: #0F172A;
+    }
+    .btn-secondary:hover {
+      background: #1E293B;
+    }
+    .info-footer-card {
+      background: var(--card-bg);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #94A3B8;
+      margin-top: 36px;
+    }
+
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 25px; }
+      .card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <span class="badge-hub">교사용 에듀테크 & AI 도구 허브</span>
+      <h1>고등학교 교사를 위한 AI 실무 도구 포털</h1>
+      <p class="lead">
+        수업 설계, 평가 문항 분석, 교과 세특 관리, 교원 직무연수까지 현장 교사의 일상 업무를 돕는 실천적 웹 도구 모음입니다.
+      </p>
+    </header>
+
+    <div class="grid">
+      <!-- 1번 카드: 교사용 AI 3종 유료 플랜 맞춤 추천기 -->
+      <div class="card">
+        <div>
+          <span class="card-badge badge-tool">인터랙티브 웹 진단 도구</span>
+          <h2>교사용 AI 3종 유료 플랜 맞춤 추천기</h2>
+          <p>
+            Claude Pro, ChatGPT Plus, Google AI Pro(Gemini) 중 나의 주 업무 목적(세특, 평가, 수업자료, 행정)과 가용 예산에 가장 적합한 도구를 진단하고 상세 기능 비교표를 확인합니다.
+          </p>
+          <ul class="feature-list">
+            <li>업무 목적(세특·평가·수업·행정)별 1순위 추천</li>
+            <li>2026년 11월 공식 확인 요금 및 미확인 항목 명시</li>
+            <li>함께 쓰면 시너지가 나는 무료 보완 도구(NotebookLM 등) 안내</li>
+            <li>외부 라이브러리 없는 100% 로컬 오프라인 반응형 웹</li>
+          </ul>
+        </div>
+        <a href="ai_plan_comparator.html" class="btn-action">맞춤 플랜 진단하기 →</a>
+      </div>
+
+      <!-- 2번 카드: 2027 수능 영어 & 온디바이스 에듀테크 슬라이드 덱 -->
+      <div class="card">
+        <div>
+          <span class="card-badge badge-deck">8장 메타 스타일 프레젠테이션</span>
+          <h2>2027 수능 영어 킬러 문항 & 온디바이스 에듀테크</h2>
+          <p>
+            평가원 빈칸추론 4대 오답 매력도 함정 설계 원리와 학생 정보 유출 없는 온디바이스(EmbeddingGemma 2) 로컬 RAG 시스템을 집약한 교원 직무연수 및 공개수업용 슬라이드입니다.
+          </p>
+          <ul class="feature-list">
+            <li>화이트 캔버스 + 코발트블루(#0064E0) 메타 디자인 토큰</li>
+            <li>SMART 학습 목표, 출제 4단계 절차, 오답 매트릭스 표 수록</li>
+            <li>키보드(화살표·스페이스바) 및 터치 슬라이드 내비게이션</li>
+            <li>F11 전체화면으로 교실 스크린 및 강당 즉각 발표 가능</li>
+          </ul>
+        </div>
+        <a href="training_deck_viewer.html" class="btn-action btn-secondary">슬라이드 덱 열기 →</a>
+      </div>
+    </div>
+
+    <div class="info-footer-card">
+      <div>
+        🔒 <strong>개인정보 및 보안 안내:</strong> 본 허브의 모든 도구는 외부 서버로 데이터를 전송하지 않으며, 교사 PC 내부에서 안전하게 실행됩니다.
+      </div>
+      <div>
+        기준일: <strong>2026년 11월</strong>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 교사용 AI 실무 도구 허브 | 고등학교 교과 평가 혁신 프로젝트
+    </footer>
+  </div>
+</body>
+</html>

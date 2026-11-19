@@ -1,0 +1,37 @@
+# 환경변수 및 보안 시크릿
+.env
+.env.*
+*.key
+*.pem
+*.token
+*.p12
+
+# API 키 및 인증 캐시
+.cache/
+.credentials/
+
+# 의존성 및 빌드 산출물
+node_modules/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+
+# 로컬 데이터베이스 및 바이너리/임시 캐시
+*.db
+*.sqlite
+*.sqlite3
+.harness/
+
+# 학생 개인정보 및 민감 데이터
+*학생*명단*
+*개인정보*
+*생기부*원문*
+*성적표*
+test_invalid_seteuk.txt
+
+# OS 생성 파일
+Thumbs.db
+Desktop.ini
+.DS_Store
